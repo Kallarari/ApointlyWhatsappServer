@@ -1,0 +1,9 @@
+@echo off
+echo Iniciando Apointly WhatsApp Service...
+echo.
+echo 1. Compilando o projeto...
+call npm run build
+echo.
+echo 2. Iniciando o servidor...
+call npm start
+pause

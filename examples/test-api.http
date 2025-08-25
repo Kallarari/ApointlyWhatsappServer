@@ -1,0 +1,29 @@
+### Teste da API Apointly WhatsApp Service
+
+### 1. Verificar se o serviço está rodando
+GET http://localhost:7000/api/whatsapp/health
+
+### 2. Inicializar conexão com WhatsApp
+POST http://localhost:7000/api/whatsapp/auth/init
+Content-Type: application/json
+
+### 3. Verificar status da conexão
+GET http://localhost:7000/api/whatsapp/auth/status
+
+### 4. Enviar uma mensagem
+POST http://localhost:7000/api/whatsapp/message/send
+Content-Type: application/json
+
+{
+  "number": "5511999999999",
+  "message": "Olá! Esta é uma mensagem de teste do Apointly WhatsApp Service."
+}
+
+### 5. Listar todas as mensagens
+GET http://localhost:7000/api/whatsapp/messages
+
+### 6. Desconectar
+POST http://localhost:7000/api/whatsapp/auth/disconnect
+
+### 7. Documentação da API
+GET http://localhost:7000/
