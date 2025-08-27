@@ -13,7 +13,7 @@ function initializeMiddlewares(app: express.Application): void {
     'https://emotioncare-server-781420692552.southamerica-east1.run.app',
     'https://www.apointly.com.br/'
   ];
-  app.use(cors({
+/*   app.use(cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
       if (allowedOrigins.some(o => origin.startsWith(o))) return callback(null, true);
@@ -22,7 +22,9 @@ function initializeMiddlewares(app: express.Application): void {
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
   }));
-  
+   */
+
+  app.use(cors());
   app.use(express.json());
   
   app.use(express.urlencoded({ extended: true }));
@@ -87,7 +89,7 @@ function startApp(): void {
   initializeRoutes(app);
 
   // Iniciar servidor
-  app.listen(port, () => {
+  app.listen(port, '0.0.0.0', () => {
     console.log(`🚀 Servidor rodando na porta ${port}`);
     console.log(`📱 Apointly WhatsApp Service iniciado`);
     console.log(`🔗 Acesse: http://localhost:${port}`);
